@@ -1,0 +1,10 @@
+while true; do
+  inotifywait -e create -e modify \
+  /servidores/e575721b-bcc3-4610-84db-1672d3c69447/csgo/{materials,models,sound,particles,maps}/\
+  -r -q
+
+  find /servidores/e575721b-bcc3-4610-84db-1672d3c69447/csgo/{materials,models,sound,particles,maps}/\
+    -type f \( -name "*.vmt" -o -name "*.vtf" -o -name "*.mp3" -o -name "*.pcf" -o -name "*.phy" -o -name "*.vdd" -o -name "*.vtx" -o -name "*.mdl" -o -name "*.bsp" -o -name "*.nav" \) \
+    -not -name "*.bz2" \
+    -exec sh -c 'if [ ! -f "{}.bz2" ]; then bzip2 -zk "{}"; fi' \;
+done
