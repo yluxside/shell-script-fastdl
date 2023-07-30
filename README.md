@@ -1,6 +1,6 @@
 Esse comando é um script em shell que cria um loop infinito usando o comando "while true".
 
-A função do script é monitorar a pasta "/servidores/e575721b-bcc3-4610-84db-1672d3c69447/csgo/materials/" e seus subdiretórios, e quando ocorrer qualquer modificação ou criação de arquivos dentro dessa pasta, ele irá executar o comando "find" para procurar por arquivos com as extensões ".vmt" ou ".vtf" e que não tenham a extensão ".bz2".
+A função do script é monitorar a pasta "/servidores/e575721b-bcc3-4610-84db-1672d3c69447/csgo/{materials,models,sound,particles,maps}/" e seus subdiretórios, e quando ocorrer qualquer modificação ou criação de arquivos dentro dessa pasta, ele irá executar o comando "find" para procurar por arquivos com as extensões ".vmt" ou ".vtf" e que não tenham a extensão ".bz2".
 
 Para cada arquivo encontrado, o script verificará se não existe um arquivo com a mesma extensão e o sufixo ".bz2". Se o arquivo não existir, o script usará o comando "bzip2" para compactar o arquivo original em um arquivo ".bz2".
 
